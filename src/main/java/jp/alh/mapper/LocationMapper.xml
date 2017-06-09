@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.alh.mapper.LocationMapper">
+
+    <resultMap id="LocationResult" type="jp.alh.entity.LocationEntity">
+	    <result column="id" property="id" />
+   		<result column="building" property="building" />
+    </resultMap>
+    <select id="getAllLocation" resultMap="LocationResult">
+        select id, building from locations
+    </select>
+    <select id="getSelectedLocation" resultMap="LocationResult">
+        select * from locations where id = #{id}
+    </select>
+</mapper>

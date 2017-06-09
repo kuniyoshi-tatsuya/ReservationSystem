@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="jp.alh.mapper.ReservationMapper">
+
+    <resultMap id="ReservationResult" type="jp.alh.entity.ReservationEntity">
+	    <result column="id" property="id" />
+   		<result column="user_id" property="userId" />
+   		<result column="location_id" property="locationId" />
+   		<result column="reserved_date" property="reservedDate" />
+   		<result column="reserved_start" property="reservedStart" />
+   		<result column="reserved_end" property="reservedEnd" />
+    </resultMap>
+    <select id="getAllReservation" resultMap="ReservationResult">
+        SELECT * FROM reservations
+    </select>
+    <insert id="registerReservation">
+    	INSERT INTO reservations (user_id, location_id, reserved_date, reserved_start, reserved_end)
+    	VALUES(#{userId}, #{locationId}, #{reservedDate}, #{reservedStart}, #{reservedEnd});
+	</insert>
+</mapper>
